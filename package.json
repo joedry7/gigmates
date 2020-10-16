@@ -1,0 +1,24 @@
+{
+  "name": "gigmates",
+  "version": "1.0.0",
+  "description": "A platform for musicians to market themselves, and local venues to find them.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joedry7/gigmates.git"
+  },
+  "author": "Joe Dry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joedry7/gigmates/issues"
+  },
+  "homepage": "https://github.com/joedry7/gigmates#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.5"
+  }
+}
