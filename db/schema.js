@@ -6,7 +6,7 @@ const createUsersTable = () => {
       return knex.schema.createTable('users', (table) => {
         table.increments('id')
           .primary();
-        table.string('user_name', 25);
+        table.string('username', 25);
         table.string('first_name', 25);
         table.string('last_name', 25);
       })
