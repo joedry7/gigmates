@@ -8,9 +8,9 @@ module.exports = {
       .then((user) => {
         res.send(user);
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).send(`An error occurred fetching user: ${id}`);
-      })
+      });
   },
 
   addUser: (req, res) => {
@@ -19,9 +19,9 @@ module.exports = {
       .then((newUser) => {
         res.send(newUser);
       })
-      .catch((err) => {
-        res.status(500).send(`An error occurred adding this user`);
-      })
+      .catch(() => {
+        res.status(500).send('An error occurred adding this user');
+      });
   },
 
   deleteUser: (req, res) => {
@@ -30,9 +30,9 @@ module.exports = {
       .then((user) => {
         res.send(user);
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).send(`An error occurred deleting user: ${id}`);
-      })
-  }
+      });
+  },
 
-}
+};

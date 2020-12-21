@@ -6,8 +6,8 @@ module.exports = {
     connection: {
       database: 'gigmates',
       user: 'postgres',
-      password: 'password'
-    }
-  }
+      password: 'password',
+    },
+  },
 
 };
