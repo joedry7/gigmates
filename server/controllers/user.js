@@ -3,7 +3,7 @@ const users = require('../../db/models/users');
 module.exports = {
 
   getUser: (req, res) => {
-    const id = req.params.id;
+    const { id } = req.params;
     users.getUser(id)
       .then((user) => {
         res.send(user);
@@ -21,6 +21,17 @@ module.exports = {
       })
       .catch((err) => {
         res.status(500).send(`An error occurred adding this user`);
+      })
+  },
+
+  deleteUser: (req, res) => {
+    const { id } = req.params;
+    users.deleteUser(id)
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        res.status(500).send(`An error occurred deleting user: ${id}`);
       })
   }
 
