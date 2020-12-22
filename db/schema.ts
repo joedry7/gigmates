@@ -1,4 +1,4 @@
-const knex = require('../server/knex');
+import { default as knex } from '../server/knex';
 
 const createUsersTable = () => knex.raw('DROP TABLE IF EXISTS users CASCADE')
   .then(() => knex.schema.createTable('users', (table) => {
@@ -29,7 +29,7 @@ const createPostsTable = () => knex.schema.dropTableIfExists('posts')
     console.log(`Error creating posts table: ${err}`);
   });
 
-const buildSchema = () => new Promise((res) => res())
+const buildSchema = () => new Promise<void>((res) => res())
   .then(createUsersTable)
   .then(createPostsTable)
   .catch((err) => console.log(`Error building schema: ${err}`))

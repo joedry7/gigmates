@@ -1,6 +1,6 @@
-const knex = require('../../server/knex');
+import { default as knex } from '../../server/knex';
 
-module.exports = {
+export default {
 
   getUser: (id) => knex('users').select().where({ id }),
 

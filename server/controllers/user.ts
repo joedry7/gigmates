@@ -1,6 +1,6 @@
-const users = require('../../db/models/users');
+import users from '../../db/models/users';
 
-module.exports = {
+export default {
 
   getUser: (req, res) => {
     const { id } = req.params;
