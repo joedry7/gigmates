@@ -1,4 +1,20 @@
-export default {
+interface Connection {
+  database: string;
+  user: string;
+  password: string;
+}
+
+interface Knex {
+  client: string;
+  connection: Connection;
+}
+
+interface Config {
+  PORT: number;
+  knex: Knex;
+}
+
+const config: Config = {
 
   PORT: 3000,
   knex: {
@@ -11,3 +27,5 @@ export default {
   },
 
 };
+
+export default config;

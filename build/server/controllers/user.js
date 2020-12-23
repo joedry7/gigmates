@@ -7,7 +7,7 @@ const users_1 = __importDefault(require("../../db/models/users"));
 exports.default = {
     getUser: (req, res) => {
         const { id } = req.params;
-        users_1.default.getUser(id)
+        users_1.default.getUser(Number(id))
             .then((user) => {
             res.send(user);
         })
@@ -27,7 +27,7 @@ exports.default = {
     },
     deleteUser: (req, res) => {
         const { id } = req.params;
-        users_1.default.deleteUser(id)
+        users_1.default.deleteUser(Number(id))
             .then((user) => {
             res.send(user);
         })

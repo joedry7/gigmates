@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+const config = {
     PORT: 3000,
     knex: {
         client: 'pg',
@@ -11,3 +11,4 @@ exports.default = {
         },
     },
 };
+exports.default = config;

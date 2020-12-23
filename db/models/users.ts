@@ -1,11 +1,17 @@
 import { default as knex } from '../../server/knex';
 
+interface User {
+  username: string;
+  first_name: string;
+  last_name: string;
+}
+
 export default {
 
-  getUser: (id) => knex('users').select().where({ id }),
+  getUser: (id: number) => knex('users').select().where({ id }),
 
-  addUser: (user) => knex('users').insert(user, '*'),
+  addUser: (user: User) => knex('users').insert(user, '*'),
 
-  deleteUser: (id) => knex('users').where({ id }).del('*'),
+  deleteUser: (id: number) => knex('users').where({ id }).del('*'),
 
 };
