@@ -1,10 +1,11 @@
-const users = require('../../db/models/users');
+import { Request, Response } from 'express';
+import users from '../../db/models/users';
 
-module.exports = {
+export default {
 
-  getUser: (req, res) => {
+  getUser: (req: Request, res: Response) => {
     const { id } = req.params;
-    users.getUser(id)
+    users.getUser(Number(id))
       .then((user) => {
         res.send(user);
       })
@@ -13,7 +14,7 @@ module.exports = {
       });
   },
 
-  addUser: (req, res) => {
+  addUser: (req: Request, res: Response) => {
     const user = req.body;
     users.addUser(user)
       .then((newUser) => {
@@ -24,9 +25,9 @@ module.exports = {
       });
   },
 
-  deleteUser: (req, res) => {
+  deleteUser: (req: Request, res: Response) => {
     const { id } = req.params;
-    users.deleteUser(id)
+    users.deleteUser(Number(id))
       .then((user) => {
         res.send(user);
       })
