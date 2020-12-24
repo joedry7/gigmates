@@ -6,7 +6,7 @@
   "scripts": {
     "start:ts": "ts-node index.ts",
     "start": "node build",
-    "schema": "node db/schema.js",
+    "schema": "ts-node db/schema.ts",
     "tsc": "tsc -w",
     "test": "test"
   },
