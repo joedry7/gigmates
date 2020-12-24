@@ -3,37 +3,25 @@ import users from '../../db/models/users';
 
 export default {
 
-  getUser: (req: Request, res: Response) => {
+  getUser: async (req: Request, res: Response) => {
     const { id } = req.params;
-    users.getUser(Number(id))
-      .then((user) => {
-        res.send(user);
-      })
-      .catch(() => {
-        res.status(500).send(`An error occurred fetching user: ${id}`);
-      });
+    let user = await users.getUser(Number(id));
+    try { res.send(user) }
+    catch(err) { res.status(500).send(`An error occurred fetching user: ${id}`); }
   },
 
-  addUser: (req: Request, res: Response) => {
-    const user = req.body;
-    users.addUser(user)
-      .then((newUser) => {
-        res.send(newUser);
-      })
-      .catch(() => {
-        res.status(500).send('An error occurred adding this user');
-      });
+  addUser: async (req: Request, res: Response) => {
+    const userInfo = req.body;
+    let user = await users.addUser(userInfo);
+    try { res.send(user) }
+    catch(err) { res.status(500).send('An error occurred adding this user') }
   },
 
-  deleteUser: (req: Request, res: Response) => {
+  deleteUser: async (req: Request, res: Response) => {
     const { id } = req.params;
-    users.deleteUser(Number(id))
-      .then((user) => {
-        res.send(user);
-      })
-      .catch(() => {
-        res.status(500).send(`An error occurred deleting user: ${id}`);
-      });
+    let user = await users.deleteUser(Number(id));
+     try { res.send(user) }
+     catch(err) { res.status(500).send(`An error occurred deleting user: ${id}`) }
   },
 
 };
