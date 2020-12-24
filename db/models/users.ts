@@ -8,10 +8,10 @@ interface User {
 
 export default {
 
-  getUser: (id: number) => knex('users').select().where({ id }),
+  getUser: async (id: number) => await knex('users').select().where({ id }),
 
-  addUser: (user: User) => knex('users').insert(user, '*'),
+  addUser: async (user: User) => await knex('users').insert(user, '*'),
 
-  deleteUser: (id: number) => knex('users').where({ id }).del('*'),
+  deleteUser: async (id: number) => await knex('users').where({ id }).del('*'),
 
 };
