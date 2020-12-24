@@ -1,4 +1,4 @@
-import { default as user } from './user';
+import { router as user } from './user';
 
 export default {
   user,

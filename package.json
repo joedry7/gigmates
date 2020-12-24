@@ -4,8 +4,8 @@
   "description": "A platform for musicians to market themselves, and local venues to find them.",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
-    "start:dev": "nodemon build",
+    "start:ts": "ts-node index.ts",
+    "start": "node build",
     "schema": "node db/schema.js",
     "tsc": "tsc -w",
     "test": "test"
