@@ -22,7 +22,7 @@ interface Config {
   PORT: number;
   KNEX: Knex;
 }
-export const config: Config = {
+const config: Config = {
 
   ENV: process.env.NODE_ENV || 'development',
   HOST: process.env.HOST || 'localhost',
@@ -38,3 +38,5 @@ export const config: Config = {
   },
 
 };
+
+export default config;

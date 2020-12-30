@@ -1,4 +1,4 @@
-import { default as knex } from '../../server/knex';
+import knex from '../../server/knex';
 
 interface User {
   username: string;
