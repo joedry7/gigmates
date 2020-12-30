@@ -1,3 +1,9 @@
+import dotenv from 'dotenv';
+
+// Configure environmental variables
+const envConfig = dotenv.config();
+if (envConfig.error) console.error(envConfig.error);
+
 interface Connection {
   host: string;
   database: string;
@@ -11,15 +17,17 @@ interface Knex {
 }
 
 interface Config {
+  ENV: string;
   HOST: string;
   PORT: number;
-  knex: Knex;
+  KNEX: Knex;
 }
 export const config: Config = {
 
+  ENV: process.env.NODE_ENV || 'development',
   HOST: process.env.HOST || 'localhost',
   PORT: Number(process.env.PORT) || 3000,
-  knex: {
+  KNEX: {
     client: 'pg',
     connection: {
       host: process.env.DB_HOST || 'localhost',
