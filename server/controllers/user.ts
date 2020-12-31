@@ -7,7 +7,7 @@ export default {
     const { id } = req.params;
     let user = await users.getUser(Number(id));
     try { res.send(user) }
-    catch(err) { res.status(500).send(`An error occurred fetching user: ${id}`); }
+    catch(err) { res.status(500).send(`An error occurred fetching user: ${id}`) }
   },
 
   addUser: async (req: Request, res: Response) => {
