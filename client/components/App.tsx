@@ -1,9 +1,18 @@
 import React from 'react';
+// @ts-ignore
+import Signin from './Signin.tsx';
 
-const App = () => {
+const App: React.FC<Props> = (props) => {
+
   return (
-    <h1>Test</h1>
+    <div>
+      <Signin />
+      <button
+      >Register</button>
+    </div>
   )
 };
+
+interface Props { }
 
 export default App;

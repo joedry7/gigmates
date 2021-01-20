@@ -11,16 +11,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(tsx)$/,
-        loader: "awesome-typescript-loader",
+        test: /\.tsx?$/,
+        loader: 'babel-loader',
       },
       {
-        test: /\.tsx?/,
-        loader: 'babel-loader',
-        options: {
-          'presets': ['@babel/preset-env', '@babel/preset-react']
-        }
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre"
       }
     ]
-  }
+  },
+  watch: true,
 };
