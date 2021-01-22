@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
-const Signin: React.FC<Props> = () => {
+const Signin: React.FC<Props> = ({ signIn }) => {
 
   const [username, setUsername] = useState('');
+
+  const handleClick = ({ preventDefault }: React.MouseEvent) => {
+    preventDefault();
+    signIn(username);
+  }
 
   return (
     <form>
@@ -10,12 +15,18 @@ const Signin: React.FC<Props> = () => {
         type='text'
         value={username}
         placeholder='Username'
+        onChange={({ target: { value } }) => setUsername(value)}
       ></input>
+      <button
+        onClick={handleClick}
+      ></button>
     </form>
   )
 
 }
 
-interface Props {}
+interface Props {
+  signIn: (username: String) => String;
+}
 
 export default Signin;
