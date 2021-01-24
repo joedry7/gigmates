@@ -4,7 +4,7 @@ const SRC_DIR = path.join(__dirname, '/client');
 const DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
-  entry: `${SRC_DIR}/index.tsx`,
+  entry: ['babel-polyfill', `${SRC_DIR}/index.tsx`],
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,

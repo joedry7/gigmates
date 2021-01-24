@@ -4,8 +4,8 @@ const Signin: React.FC<Props> = ({ signIn }) => {
 
   const [username, setUsername] = useState('');
 
-  const handleClick = ({ preventDefault }: React.MouseEvent) => {
-    preventDefault();
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     signIn(username);
   }
 
