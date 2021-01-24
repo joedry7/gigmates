@@ -2,16 +2,16 @@ import knex from '../../server/knex';
 
 interface User {
   username: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
 }
 
 export default {
 
-  getUser: async (id: number) => await knex('users').select().where({ id }),
+  getUser: (id: number) => knex('users').select().where({ id }),
 
-  addUser: async (user: User) => await knex('users').insert(user, '*'),
+  addUser: (user: User) => knex('users').insert(user, '*'),
 
-  deleteUser: async (id: number) => await knex('users').where({ id }).del('*'),
+  deleteUser: (id: number) => knex('users').where({ id }).del('*'),
 
 };

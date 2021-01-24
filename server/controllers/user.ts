@@ -5,23 +5,23 @@ export default {
 
   getUser: async (req: Request, res: Response) => {
     const { id } = req.params;
-    let user = await users.getUser(Number(id));
-    try { res.send(user) }
-    catch(err) { res.status(500).send(`An error occurred fetching user: ${id}`) }
+    const user = await users.getUser(Number(id));
+    try { res.send(user); }
+    catch (err) { res.status(500).send(`An error occurred fetching user: ${id}`); }
   },
 
   addUser: async (req: Request, res: Response) => {
     const userInfo = req.body;
-    let user = await users.addUser(userInfo);
-    try { res.send(user) }
-    catch(err) { res.status(500).send('An error occurred adding this user') }
+    const user = await users.addUser(userInfo);
+    try { res.send(user); }
+    catch (err) { res.status(500).send('An error occurred adding this user'); }
   },
 
   deleteUser: async (req: Request, res: Response) => {
     const { id } = req.params;
-    let user = await users.deleteUser(Number(id));
-     try { res.send(user) }
-     catch(err) { res.status(500).send(`An error occurred deleting user: ${id}`) }
+    const user = await users.deleteUser(Number(id));
+    try { res.send(user); }
+    catch (err) { res.status(500).send(`An error occurred deleting user: ${id}`); }
   },
 
 };
